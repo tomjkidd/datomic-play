@@ -1,7 +1,7 @@
 (ns datomic-play.entity-resolution
   (:require [datomic.client.api :as d]
             [datomic-play.entity-resolution.model :as model]
-            [datomic-play.system :as sytem]
+            [datomic-play.system :as sys]
             [taoensso.timbre :as timbre]))
 
 (defn load-schema!
@@ -10,8 +10,9 @@
 
 (defn start
   [{:keys [load-schema?]
+    :as config
     :or {load-schema? true}}]
-  (let [system (system/start)]
+  (let [system (sys/start config)]
     (when load-schema?
       (timbre/info "Loading entity-resolution schema")
       (load-schema! (:conn system)))
@@ -19,4 +20,4 @@
 
 (defn stop
   [system]
-  (system/stop system))
+  (sys/stop system))

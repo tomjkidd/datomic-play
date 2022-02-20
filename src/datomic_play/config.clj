@@ -20,7 +20,7 @@
                  (do (timbre/info "Using default datomic db-name")
                      "hello")))
 
-(def default-config
+(def default-datomic-client-config
   {:server-type :peer-server
    :access-key access-key
    :secret secret

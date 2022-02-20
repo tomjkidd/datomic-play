@@ -1,4 +1,4 @@
-(ns entity-resolution.model
+(ns datomic-play.entity-resolution.model
   "The datomic schema model for entity resolution entities")
 
 (def keyring-schema
@@ -89,3 +89,12 @@ Actual domain type of the key value can vary based on the :entity-resolution.key
     :db/valueType :db.type/string
     :db/cardinality :db.cardinality/one
     :db/doc "The NCT Id used by clinicaltrials.gov, https://clinicaltrials.gov/"}])
+
+(def schema
+  (reduce (fn [acc cur]
+            (into acc cur))
+          []
+          [keyring-schema
+           key-schema
+           site-schema
+           trial-schema]))

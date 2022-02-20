@@ -53,3 +53,10 @@ To run the project's tests, just run `make test`
 
 - https://docs.datomic.com/on-prem/index.html
   - On-prem documentation, since this is the method I used
+- :db/valueTypes
+  - https://docs.datomic.com/on-prem/schema/schema.html#value-types
+  - `:db.type/{bigdec|bigint|boolean|double|float|instant|keyword|long|ref|string|symbol|tuple|uuid|uri|bytes}`
+    - instant -> java.util.Date -> epoch ms
+- :db/cardinality
+  - https://docs.datomic.com/on-prem/schema/schema.html#cardinality
+  - `:db.cardinality/{one|many}`

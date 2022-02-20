@@ -1,9 +1,11 @@
 {:deps {org.clojure/clojure {:mvn/version "1.10.3"}
         com.datomic/client-pro {:mvn/version "1.0.72"}
         com.taoensso/timbre {:mvn/version "5.1.2"}}
- :aliases {:test {:extra-paths ["test"]
-                  :extra-deps {io.github.cognitect-labs/test-runner
-                               {:git/url "https://github.com/cognitect-labs/test-runner.git"
-                                :sha "9e35c979860c75555adaff7600070c60004a0f44"}}
-                  :main-opts ["-m" "cognitect.test-runner"]
-                  :exec-fn cognitect.test-runner.api/test}}}
+ :aliases
+ {:test {:extra-paths ["test"]
+         :extra-deps {io.github.cognitect-labs/test-runner
+                      {:git/url "https://github.com/cognitect-labs/test-runner.git"
+                       :sha "9e35c979860c75555adaff7600070c60004a0f44"}}
+         :main-opts ["-m" "cognitect.test-runner"]
+         :exec-fn cognitect.test-runner.api/test}
+  :test-watch {:extra-deps {lambdaisland/kaocha {:mvn/version "1.63.998"}}}}}

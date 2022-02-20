@@ -12,5 +12,8 @@ endif
 test:
 	clj -X:test
 
+test-watch-focus:
+	bin/kaocha --focus-meta :focus --watch
+
 run-peer: check-env
 	$(DATOMIC_INSTALL_DIR)/bin/run -m datomic.peer-server -h localhost -p 8998 -a $(DATOMIC_ACCESS_KEY),$(DATOMIC_SECRET) -d hello,datomic:mem://hello

@@ -39,10 +39,11 @@ clj
 
 ``` clojure
 ;; Witness datomic is up and running
-(require '[getting-started :as gs]
-         '[datomic.client.api :as d])
-(gs/write-first-movies!)
-(d/q gs/all-movies-q (d/db gs/conn))
+(require '[datomic-play.entity-resolution :as er])
+(def sys (er/start {:load-schema? true}))
+(def conn (:conn sys))
+(er/load-sample-trial! conn)
+(er/read-trials conn)
 ```
 
 ## Tests
